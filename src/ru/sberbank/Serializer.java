@@ -23,13 +23,8 @@ public class Serializer<T extends Object> {
                     ArraySerializer serializer = new ArraySerializer();
                     serializer.SerializeArray(((Object[]) fields.get(obj)));
                 } else {
-                    Serializer serializer = new Serializer();
-                    serializer.objectAsJson(fields.get(obj));
-                   // Object field = fields.get(obj);
-                    //System.out.print('"');
-                    //System.out.print(field);
-                    //System.out.print('"');
-                    //System.out.println(",");
+                    NestedObjSerializer nestedObjSerializer = new NestedObjSerializer();
+                    nestedObjSerializer.serializeNestedObj(fields.get(obj));
                 }
             }
         }
