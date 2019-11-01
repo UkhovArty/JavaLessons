@@ -9,10 +9,9 @@ import java.util.Map;
 
 public class Serializer<T extends Object> {
     public void objectAsJson(T o) throws IllegalAccessException {
-        if (o.getClass().isPrimitive() || o instanceof String || o instanceof Number || o instanceof Character) {
-            System.out.print('"');
-            System.out.print(o);
-            System.out.println('"' + ",");
+        if (o.getClass().isPrimitive() || o.getClass().equals(String.class) || o.getClass().getSuperclass().equals(Number.class) || o.getClass().equals(Character.class)) {
+            PrimitiveSerializer primitiveSerializer = new PrimitiveSerializer();
+            primitiveSerializer.serializePrimitive(o);
         } else {
             ObjectStructureGetter getter = new ObjectStructureGetter();
             Map<String, Object> fields = new HashMap();
@@ -22,6 +21,10 @@ public class Serializer<T extends Object> {
                 if (fields.get(obj).getClass().isArray()) {
                     ArraySerializer serializer = new ArraySerializer();
                     serializer.SerializeArray(((Object[]) fields.get(obj)));
+                }
+                else if (fields.get(obj).getClass().isPrimitive() || fields.get(obj).getClass().equals(String.class) || fields.get(obj).getClass().getSuperclass().equals(Number.class) || fields.get(obj).getClass().equals(Character.class)) {
+                    PrimitiveSerializer primitiveSerializer = new PrimitiveSerializer();
+                    primitiveSerializer.serializePrimitive(fields.get(obj));
                 } else {
                     NestedObjSerializer nestedObjSerializer = new NestedObjSerializer();
                     nestedObjSerializer.serializeNestedObj(fields.get(obj));
