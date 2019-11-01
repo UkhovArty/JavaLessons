@@ -12,12 +12,11 @@ public class ObjectStructureGetter<T extends Object> {
 
     Map GetObjFields(T o) throws IllegalAccessException {
         Class clazz = o.getClass();
-        System.out.println("Hey, Boss, I've got a class!");
-        Map<String, Field> fields = new HashMap();
-            Field[] tmp = clazz.getDeclaredFields();
-            for (Field field : tmp) {
+        //System.out.println("Hey, Boss, I've got a class!");
+        Map<String, Object> fields = new HashMap();
+            for (Field field : clazz.getDeclaredFields()) {
                 field.setAccessible(true);
-                fields.put((String) field.getName(), field);
+                fields.put((String) field.getName(), field.get(o));
             }
         return fields;
     }

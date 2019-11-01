@@ -5,9 +5,11 @@ public class Example<T extends Object> {
     public String poop = "KAKASHKA";
     private double rudePi = 3;
     public String[] str = new String[2];
-    public Example () {
+    public SomeClass someClass;
+    public Example (SomeClass someClass) {
         this.str[0] = "Hey, I've just met u";
         this.str[1] = "And this is crazy";
+        this.someClass = someClass;
     }
 
 }
