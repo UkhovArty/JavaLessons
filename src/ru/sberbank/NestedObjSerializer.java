@@ -12,7 +12,7 @@ public class NestedObjSerializer {
         for (Field field: clazz.getDeclaredFields()) {
             field.setAccessible(true);
             System.out.print("\t");
-            System.out.print(field.getName());
+            System.out.print('"' + field.getName() + '"' + ": ");
             Object object = field.get(obj);
             Serializer serializer = new Serializer();
             serializer.objectAsJson(object);
