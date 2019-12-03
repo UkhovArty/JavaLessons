@@ -1,11 +1,10 @@
-package ru.sberbank;
+package ru.sberbank.JsonSerializer;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
-public class CollectionSerializer<T extends Object> {
+public class JsonCollectionSerializer<T extends Object> {
     public void SerializeCollection(Collection<T> collection) throws IllegalAccessException {
-        ArraySerializer serializer = new ArraySerializer();
+        JsonArraySerializer serializer = new JsonArraySerializer();
         serializer.SerializeArray(collection.toArray());
     }
 }

@@ -1,4 +1,4 @@
-package ru.sberbank;
+package ru.sberbank.JsonSerializer;
 
 public class Example<T extends Object> {
     public final int t = 0;

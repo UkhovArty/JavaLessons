@@ -1,20 +1,18 @@
-package ru.sberbank;
+package ru.sberbank.JsonSerializer;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NestedObjSerializer {
-    public void serializeNestedObj(Object obj) throws IllegalAccessException {
-        System.out.println("{");
+public class SerializationUtils {
+    public void serializeObjectUtils(Object obj) throws IllegalAccessException {
         Class clazz = obj.getClass();
-        Map<String, Object> fields = new HashMap();
-        for (Field field: clazz.getDeclaredFields()) {
+        for (Field field : clazz.getDeclaredFields()) {
             field.setAccessible(true);
             System.out.print("\t");
             System.out.print('"' + field.getName() + '"' + ": ");
             Object object = field.get(obj);
-            Serializer serializer = new Serializer();
+            JsonSerializer serializer = new JsonSerializer();
             serializer.objectAsJson(object);
         }
         System.out.println("},");

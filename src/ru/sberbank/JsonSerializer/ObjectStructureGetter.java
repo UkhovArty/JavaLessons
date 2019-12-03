@@ -1,4 +1,4 @@
-package ru.sberbank;
+package ru.sberbank.JsonSerializer;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -12,7 +12,6 @@ public class ObjectStructureGetter<T extends Object> {
 
     Map GetObjFields(T o) throws IllegalAccessException {
         Class clazz = o.getClass();
-        //System.out.println("Hey, Boss, I've got a class!");
         Map<String, Object> fields = new HashMap();
             for (Field field : clazz.getDeclaredFields()) {
                 field.setAccessible(true);

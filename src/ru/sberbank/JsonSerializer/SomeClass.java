@@ -1,4 +1,4 @@
-package ru.sberbank;
+package ru.sberbank.JsonSerializer;
 
 public class SomeClass {
     public final String str1 = "Hey, Boss, it's amazing!";

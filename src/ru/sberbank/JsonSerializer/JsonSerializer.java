@@ -1,16 +1,12 @@
-package ru.sberbank;
+package ru.sberbank.JsonSerializer;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Serializer<T extends Object> {
+public class JsonSerializer<T extends Object> {
     public void objectAsJson(T o) throws IllegalAccessException {
         if (o.getClass().isPrimitive() || o.getClass().equals(String.class) || o.getClass().getSuperclass().equals(Number.class) || o.getClass().equals(Character.class)) {
-            PrimitiveSerializer primitiveSerializer = new PrimitiveSerializer();
+            PrimitiveJsonSerializer primitiveSerializer = new PrimitiveJsonSerializer();
             primitiveSerializer.serializePrimitive(o);
         } else {
             ObjectStructureGetter getter = new ObjectStructureGetter();
@@ -19,14 +15,14 @@ public class Serializer<T extends Object> {
             for (Object obj : fields.keySet()) {
                 System.out.print('"' + obj.toString() + '"' + ": ");
                 if (fields.get(obj).getClass().isArray()) {
-                    ArraySerializer serializer = new ArraySerializer();
+                    JsonArraySerializer serializer = new JsonArraySerializer();
                     serializer.SerializeArray(((Object[]) fields.get(obj)));
                 }
                 else if (fields.get(obj).getClass().isPrimitive() || fields.get(obj).getClass().equals(String.class) || fields.get(obj).getClass().getSuperclass().equals(Number.class) || fields.get(obj).getClass().equals(Character.class)) {
-                    PrimitiveSerializer primitiveSerializer = new PrimitiveSerializer();
+                    PrimitiveJsonSerializer primitiveSerializer = new PrimitiveJsonSerializer();
                     primitiveSerializer.serializePrimitive(fields.get(obj));
                 } else {
-                    NestedObjSerializer nestedObjSerializer = new NestedObjSerializer();
+                    JsonNestedObjSerializer nestedObjSerializer = new JsonNestedObjSerializer();
                     nestedObjSerializer.serializeNestedObj(fields.get(obj));
                 }
             }
