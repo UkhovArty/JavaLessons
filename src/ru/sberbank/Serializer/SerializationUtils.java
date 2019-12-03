@@ -1,8 +1,6 @@
-package ru.sberbank.JsonSerializer;
+package ru.sberbank.Serializer;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SerializationUtils {
     public void serializeObjectUtils(Object obj) throws IllegalAccessException {

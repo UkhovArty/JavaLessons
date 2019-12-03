@@ -1,4 +1,4 @@
-package ru.sberbank.JsonSerializer;
+package ru.sberbank.Serializer;
 
 public class PrimitiveXMLSerializer {
 

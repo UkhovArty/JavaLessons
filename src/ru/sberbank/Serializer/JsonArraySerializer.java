@@ -1,4 +1,4 @@
-package ru.sberbank.JsonSerializer;
+package ru.sberbank.Serializer;
 
 public class JsonArraySerializer<T extends Object> {
     public void SerializeArray(T[] o) throws IllegalAccessException {

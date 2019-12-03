@@ -1,6 +1,4 @@
-package ru.sberbank.JsonSerializer;
-
-import java.util.Map;
+package ru.sberbank.Serializer;
 
 public class XMLSerializer extends Serializer {
 
