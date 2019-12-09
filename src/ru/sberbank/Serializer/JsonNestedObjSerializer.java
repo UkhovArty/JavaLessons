@@ -1,9 +1,11 @@
 package ru.sberbank.Serializer;
 
 public class JsonNestedObjSerializer {
-    public void serializeNestedObj(Object obj) throws IllegalAccessException {
+    public void serializeNestedObj(Object obj, String o) throws IllegalAccessException {
+        System.out.print('"' + o + '"' + ": ");
         System.out.println("{");
-        SerializationUtils serializationUtils = new SerializationUtils();
-        serializationUtils.serializeObjectUtils(obj);
+        System.out.print("\t");
+        Serializer serializer = new JsonSerializer<>();
+        serializer.serializeObject(obj);
     }
 }

@@ -5,8 +5,9 @@ public class Main {
         SomeClass someClass = new SomeClass();
         Example exanple = new Example(someClass);
         JsonSerializer serializer = new JsonSerializer();
-        serializer.objectAsJson(exanple);
-        Serializer xmlSerializer = new XMLSerializer();
-        xmlSerializer.serializeObject(exanple);
+        serializer.serializeObject(exanple);
+
+//        Serializer xmlSerializer = new XMLSerializer();
+  //      xmlSerializer.serializeObject(exanple);
     }
 }
