@@ -1,5 +1,7 @@
 package ru.sberbank.Serializer;
 
+import ru.sberbank.Serializer.JsonSerializer.JsonArraySerializer;
+
 import java.util.ArrayList;
 
 public class ArrayListSerializer<T extends Object> {

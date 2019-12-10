@@ -1,4 +1,4 @@
-package ru.sberbank.Serializer;
+package ru.sberbank.Serializer.JsonSerializer;
 
 public class PrimitiveJsonSerializer {
     public void serializePrimitive(Object obj, String o) {

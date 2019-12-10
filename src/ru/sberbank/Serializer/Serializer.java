@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Serializer {
-    void serializeObject(Object o) throws IllegalAccessException {
+    public void serializeObject(Object o) throws IllegalAccessException {
         if (o.getClass().isPrimitive() || o.getClass().equals(String.class) || o.getClass().getSuperclass().equals(Number.class) || o.getClass().equals(Character.class)) {
             serializePrimitive(o, o.toString());
         } else {
@@ -17,16 +17,16 @@ public abstract class Serializer {
                 } else if (fields.get(obj).getClass().isPrimitive() || fields.get(obj).getClass().equals(String.class) || fields.get(obj).getClass().getSuperclass().equals(Number.class) || fields.get(obj).getClass().equals(Character.class)) {
                     serializePrimitive(fields.get(obj), obj.toString());
                 } else {
-                    serializeNestedObject(fields.get(obj), obj.toString());
+                    serializeNestedObject(fields.get(obj), (String) obj);
                 }
             }
         }
     }
 
-    abstract void serializeNestedObject(Object obj, String o) throws IllegalAccessException;
+    public abstract void serializeNestedObject(Object obj, String o) throws IllegalAccessException;
 
-    abstract void serializeArray(Object[] o, String obj) throws IllegalAccessException;
+    public abstract void serializeArray(Object[] o, String obj) throws IllegalAccessException;
 
-    abstract void serializePrimitive(Object obj, String o);
+    public abstract void serializePrimitive(Object obj, String o);
 }
 

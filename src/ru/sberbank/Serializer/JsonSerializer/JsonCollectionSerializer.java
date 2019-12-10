@@ -1,4 +1,4 @@
-package ru.sberbank.Serializer;
+package ru.sberbank.Serializer.JsonSerializer;
 
 import java.util.Collection;
 

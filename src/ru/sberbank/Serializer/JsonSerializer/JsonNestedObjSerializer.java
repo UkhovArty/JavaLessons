@@ -1,4 +1,6 @@
-package ru.sberbank.Serializer;
+package ru.sberbank.Serializer.JsonSerializer;
+
+import ru.sberbank.Serializer.Serializer;
 
 public class JsonNestedObjSerializer {
     public void serializeNestedObj(Object obj, String o) throws IllegalAccessException {
