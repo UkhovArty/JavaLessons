@@ -8,5 +8,6 @@ public class JsonNestedObjSerializer {
         System.out.println("{");
         Serializer serializer = new DecoratorForJsonSerializer();
         ((DecoratorForJsonSerializer) serializer).serializeJsonObject(obj);
+        System.out.println("}");
     }
 }

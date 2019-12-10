@@ -13,7 +13,7 @@ public class DecoratorForJsonSerializer extends JsonSerializer {
         fields = objectStructureGetter.GetObjFields(obj);
         Serializer serializer = new JsonSerializer<>();
         for (Object o : fields.keySet()) {
-            System.out.print("\t");
+            System.out.print("\t" + '"' + o + '"' + ':' + ' ');
             serializer.serializeObject(fields.get(o));
         }
     }

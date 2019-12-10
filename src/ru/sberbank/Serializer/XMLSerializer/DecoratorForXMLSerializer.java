@@ -12,10 +12,11 @@ public class DecoratorForXMLSerializer extends XMLSerializer {
         ObjectStructureGetter objectStructureGetter = new ObjectStructureGetter();
         Map fields = new HashMap();
         fields = objectStructureGetter.GetObjFields(obj);
-        Serializer serializer = new JsonSerializer<>();
+        Serializer serializer = new XMLSerializer();
         for (Object o : fields.keySet()) {
-            System.out.print("\t");
+            System.out.print("\t" + '<' + o + '>');
             serializer.serializeObject(fields.get(o));
+            System.out.println("</" + o + '>');
         }
     }
 }

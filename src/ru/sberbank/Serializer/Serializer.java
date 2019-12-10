@@ -6,7 +6,7 @@ import java.util.Map;
 public abstract class Serializer {
     public void serializeObject(Object o) throws IllegalAccessException {
         if (o.getClass().isPrimitive() || o.getClass().equals(String.class) || o.getClass().getSuperclass().equals(Number.class) || o.getClass().equals(Character.class)) {
-            serializePrimitive(o, o.toString());
+            serializePrimitive(o, "");
         } else {
             ObjectStructureGetter getter = new ObjectStructureGetter();
             Map<String, Object> fields = new HashMap();

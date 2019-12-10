@@ -8,5 +8,6 @@ public class XMLNestedObjectSerializer {
         System.out.println("\t");
         Serializer serializer = new DecoratorForXMLSerializer();
         ((DecoratorForXMLSerializer) serializer).serializeXMLObject(obj);
+        System.out.println("</" + o + '>');
     }
 }
